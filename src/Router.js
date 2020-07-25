@@ -8,9 +8,9 @@ export const Router =() => {
     return (
         <BrowserRouter>
             <Switch>
-    <Route path="/" exact children={<App/>}/>
-    <Route path="/page1" exact children={<Page1/>}/>
-    <Route path="/page2" exact children={<Page2/>}/>
+            <Route path="/" exact children={<App/>}/>
+            <Route path="/page1" exact children={<Page1/>}/>
+            <Route path="/page2" exact children={<Page2/>}/>
             </Switch>
         </BrowserRouter>
     )
