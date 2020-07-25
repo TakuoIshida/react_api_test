@@ -1,6 +1,10 @@
 import React, {userState} from 'react'
+import { TextField } from '@material-ui/core';
+import Button from '@material-ui/core/Button';
 import axios from 'axios'
-
+require('dotenv').config();
+const API_KEY = process.env.API_KEY
+const PROJECT_ID = process.env.PROJECT_ID
 const Page2 = () => {
     // const [translate, setTranslate] = userState('');
     // url = '';
@@ -12,15 +16,17 @@ const Page2 = () => {
     //     }
     // }, [input])
     const params = {
-        "q": ["Hello world", "My name is Jeff"],
-        "target": "de"
+        "sourceLanguageCode": "en",
+        "targetLanguageCode": "ru",
+        "contents": ["Dr. Watson, come here!"],
+        "mimeType": "text/plain"
       }
     const getData = () => {
-        let url = 'https://translation.googleapis.com/language/translate/v2'
+        let url = `https://translation.googleapis.com/v3/projects/${PROJECT_ID}:translateText`
         axios
-          .get(url,{
+          .get(url,{params: params,
             headers: {
-              Authorization: "Bearer AIzaSyAVt_rg6Sxe_1q9Jb4LWfJ7YqjFiE27ffo"
+              Authorization: `Bearer ${API_KEY}`
             }
           })
           .then(results => {
@@ -29,12 +35,19 @@ const Page2 = () => {
               info: data,
               isLoading: false
             });
+          })
+          .catch((error) => {
+            console.log(error.response.data);
+            console.log(error.response.status);
+            console.log(error.response.headers);
           });
       }
     return (
         <div>
             <span>this is Page2</span>
-
+            <Button variant="contained" color="primary">
+                翻訳する
+            </Button>
         </div>
     )
 }
