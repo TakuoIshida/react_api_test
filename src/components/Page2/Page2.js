@@ -45,6 +45,9 @@ const Page2 = () => {
     return (
         <div>
             <span>this is Page2</span>
+            <form noValidate >
+                <TextField id="outlined-basic" label="入力欄" variant="outlined" />
+            </form>
             <Button variant="contained" color="primary">
                 翻訳する
             </Button>
