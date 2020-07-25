@@ -25,11 +25,11 @@ class Page1 extends React.Component {
         
             return (
                 <div className={styles.container}>
+                    <div>this is page1</div>
                     <img className={ styles.image } src={ covid } alt="covid19"/>
                     <Cards data={ data }/>
                     <CountryPicker handleCountryChange={this.handleCountryChange}/>
                     <Chart data={ data } country={country} />
-                    <div>this is page1</div>
                 </div>
             )
     }
