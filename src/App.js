@@ -1,26 +1,18 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Link, useHistory } from 'react-router-dom';
 
-function App() {
+export const App = () => {
+  const history = useHistory();
+
+  const onClickToPage2 = () => history.push('/page2');
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{ minHeight: '100vh', textAlign: 'center' }}>
+      <h2>This is TOP</h2>
+      <Link to="/page1">PAGE1</Link>
+      <br />
+      <br />
+      <button onClick={onClickToPage2}>PAGE2</button>
     </div>
   );
-}
-
-export default App;
+};
