@@ -1,4 +1,4 @@
-import React, {userState} from 'react'
+import React from 'react'
 import { TextField } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import axios from 'axios'
@@ -17,7 +17,7 @@ const Page2 = () => {
     // }, [input])
     const params = {
         "sourceLanguageCode": "en",
-        "targetLanguageCode": "ru",
+        "targetLanguageCode": "ja",
         "contents": ["Dr. Watson, come here!"],
         "mimeType": "text/plain"
       }
@@ -48,7 +48,7 @@ const Page2 = () => {
             <form noValidate >
                 <TextField id="outlined-basic" label="入力欄" variant="outlined" />
             </form>
-            <Button variant="contained" color="primary">
+            <Button onClick={() => getData()} variant="contained" color="primary">
                 翻訳する
             </Button>
         </div>
